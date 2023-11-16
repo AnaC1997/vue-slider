@@ -28,7 +28,9 @@ body{
 img{
     width: 350px;
     height: 350px;
+    cursor: pointer;
 }
+
 
 .containerButtons{
     margin-top: 2rem;
@@ -40,17 +42,9 @@ img{
     padding: 1rem;
     margin: 2rem;
     border-radius: 10%;
+    cursor: pointer;
 }
 
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.25s ease-out;
-}
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
+.btn:hover{
+    background-color: rgb(152, 236, 68);
 }

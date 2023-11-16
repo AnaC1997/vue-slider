@@ -24,37 +24,51 @@ const app = createApp({
                     prezzo: 699.99
                 }
             ],
-            attualeSlider: 0 
+            attualeSlider: 0
 
         }
     },
-    methods:{
-        back(){
-            let  indiceUltimoSlider = this.elementi.length - 1;
-            if (this.attualeSlider > 0){
+    methods: {
+        back() {
+            let indiceUltimoSlider = this.elementi.length - 1;
+            if (this.attualeSlider > 0) {
                 this.attualeSlider--;
             }
-            else{
+            else {
                 this.attualeSlider = indiceUltimoSlider;
             }
 
         },
 
-        next(){
+        next() {
             let indiceUltimoSlider = this.elementi.length - 1;
 
-            if (this.attualeSlider < indiceUltimoSlider){
+            if (this.attualeSlider < indiceUltimoSlider) {
                 this.attualeSlider++;
             }
-            else{
+            else {
                 this.attualeSlider = 0;
             }
-            
+        },
+        startAutoSlide() {
+            // Inizia la slider automatica per 4 secondi 
+            this.autoSlideInterval = setInterval(() => {
+              this.next();
+            }, 4000);
+          },
+          stopAutoSlide() {
+            clearInterval(this.autoSlideInterval);
+          },
+        },
+        mounted() {
+          // Avvia la slider nuovamente
+          this.startAutoSlide();
+        },
+        beforeDestroy() {
+          // Interrompi la slider automatica
+          this.stopAutoSlide();
         }
 
-    
-    },
-    
 });
 
 app.mount('#app');
