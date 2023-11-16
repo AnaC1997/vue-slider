@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+
+        <h1>{{ messaggio}}</h1>
+        <!--Ciclo che mi permettere iterare ogni elemento-->
+        <div v-for="(elemento, index) in elementi" :key="index" class="card" v-show="index === attualeSlider">
+            <img :src="elemento.immagine" alt="Prodotto">
+            <h4>{{ elemento.nome }}</h4>
+            <p>{{ elemento.descrizione }}</p>
+            <p>${{ elemento.prezzo }}</p>
+       
+
+        </div>
+
+
+        <!--Pulsanti per cambiare di slider-->
+        <div class="containerButtons">
+            <button @click="back()" class="btn">Indietro</button>
+            <button @click="next()" class="btn">Avanti</button>
+
+        </div>
+
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
